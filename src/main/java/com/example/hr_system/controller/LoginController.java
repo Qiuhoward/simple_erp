@@ -1,6 +1,11 @@
 package com.example.hr_system.controller;
 
-import com.example.hr_system.bean.LoginDto;
+
+import com.example.hr_system.bean.event.EventMessage;
+import com.example.hr_system.bean.login.LoginAddDto;
+import com.example.hr_system.bean.login.LoginGetDto;
+import com.example.hr_system.bean.login.PeopleEditDto;
+import com.example.hr_system.bean.login.PeopleEditDto;
 import com.example.hr_system.service.LoginService;
 import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +20,23 @@ public class LoginController {
 
 
     @RequestMapping(value="/add_login",method = RequestMethod.POST) //網址用底線小寫
-    public String addAccount(@RequestBody LoginDto loginDto){
-        System.out.println(loginDto);
-        return null;
+    public EventMessage<String> addAccount(@RequestBody LoginAddDto loginAddDto){
+        return loginService.addPeople(loginAddDto);
+
     }
-//,method = RequestMethod.POST
+
+    @RequestMapping(value="/get_login",method = RequestMethod.POST) //網址用底線小寫
+    public EventMessage<Integer> login(@RequestBody LoginGetDto loginGetDto){
+        return loginService.login(loginGetDto);
+        //要藏值所以用post(account,password)
+    }
+    @RequestMapping(value="/edit_people",method = RequestMethod.PUT) //網址用底線小寫
+    public EventMessage<String>edit_people(@RequestBody PeopleEditDto peopleEditDto){
+        return loginService.update(peopleEditDto);
+        //要藏值所以用post(account,password)
+    }
+
+
 
 
 }

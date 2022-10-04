@@ -13,8 +13,8 @@ public class Login {
     private int loginId;
 
     private String account;
-    private String passeord;
-    private int peopleNumber;
+    private String password;
+    private int peopleId;
 }
 
 

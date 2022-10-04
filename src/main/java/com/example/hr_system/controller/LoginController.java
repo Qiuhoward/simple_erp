@@ -2,9 +2,7 @@ package com.example.hr_system.controller;
 
 
 import com.example.hr_system.bean.event.EventMessage;
-import com.example.hr_system.bean.login.LoginAddDto;
-import com.example.hr_system.bean.login.LoginGetDto;
-import com.example.hr_system.bean.login.PeopleEditDto;
+import com.example.hr_system.bean.login.*;
 import com.example.hr_system.bean.login.PeopleEditDto;
 import com.example.hr_system.service.LoginService;
 import lombok.Value;
@@ -34,6 +32,10 @@ public class LoginController {
     public EventMessage<String>edit_people(@RequestBody PeopleEditDto peopleEditDto){
         return loginService.update(peopleEditDto);
         //要藏值所以用post(account,password)
+    }
+    @RequestMapping(value="/del_people",method = RequestMethod.DELETE) //網址用底線小寫
+    public EventMessage<String>del_people(@RequestBody LoginDeleteDto loginDeleteDto){
+        return loginService.delete(loginDeleteDto);
     }
 
 

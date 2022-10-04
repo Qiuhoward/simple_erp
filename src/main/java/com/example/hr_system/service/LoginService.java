@@ -1,8 +1,7 @@
 package com.example.hr_system.service;
 
-import com.example.hr_system.bean.login.LoginDelteDto;
+import com.example.hr_system.bean.login.LoginDeleteDto;
 import com.example.hr_system.bean.login.LoginGetDto;
-
 import com.example.hr_system.bean.event.EventMessage;
 import com.example.hr_system.bean.login.LoginAddDto;
 import com.example.hr_system.bean.login.PeopleEditDto;
@@ -91,6 +90,12 @@ public class LoginService {
         return eventMessage.setDefaultEventMessage(loginId);
     }
 
+    /**
+     *
+     * 登入後更新人事資料
+     * @param peopleEditDto
+     * @return
+     */
     public EventMessage<String> update(PeopleEditDto peopleEditDto) {
         int loginId=peopleEditDto.getLoginId();
         EventMessage eventMessage = new EventMessage();
@@ -101,9 +106,15 @@ public class LoginService {
         peopleRepository.save(people);
         return eventMessage.setDefaultEventMessage("修改成功");
     }
-    public EventMessage<String> delete(LoginDelteDto loginDelteDto) {
-        int loginId=loginDelteDto.getLoginId();
-        int peopleId=loginDelteDto.getPeopleId();
+
+    /**
+     * 刪除員工資料
+     * @param loginDeleteDto
+     * @return
+     */
+    public EventMessage<String> delete(LoginDeleteDto loginDeleteDto) {
+        int loginId=loginDeleteDto.getLoginId();
+        int peopleId=loginDeleteDto.getPeopleId();
         EventMessage eventMessage = new EventMessage();
         loginRepository.deleteById(loginId);
         peopleRepository.deleteById(peopleId);

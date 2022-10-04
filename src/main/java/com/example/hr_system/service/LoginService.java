@@ -1,17 +1,16 @@
 package com.example.hr_system.service;
 
+import com.example.hr_system.bean.login.LoginDelteDto;
 import com.example.hr_system.bean.login.LoginGetDto;
 
 import com.example.hr_system.bean.event.EventMessage;
 import com.example.hr_system.bean.login.LoginAddDto;
-import com.example.hr_system.bean.login.PeopleEditDto;
 import com.example.hr_system.bean.login.PeopleEditDto;
 import com.example.hr_system.entity.Login;
 import com.example.hr_system.entity.People;
 import com.example.hr_system.repository.LoginRepository;
 import com.example.hr_system.repository.PeopleRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.bridge.MessageWriter;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -102,7 +101,14 @@ public class LoginService {
         peopleRepository.save(people);
         return eventMessage.setDefaultEventMessage("修改成功");
     }
-
+    public EventMessage<String> delete(LoginDelteDto loginDelteDto) {
+        int loginId=loginDelteDto.getLoginId();
+        int peopleId=loginDelteDto.getPeopleId();
+        EventMessage eventMessage = new EventMessage();
+        loginRepository.deleteById(loginId);
+        peopleRepository.deleteById(peopleId);
+        return  eventMessage.setDefaultEventMessage("刪除成功");
+    }
 
 
 }

@@ -1,12 +1,11 @@
-package com.example.hr_system.bean;
+package com.example.hr_system.bean.login;
 
 
 import lombok.Data;
 
 @Data
-public class LoginDto {
+public class LoginAddDto {
 
-    private  String loginId;
     private  String loginAccount;
     private  String password1;
     private  String password2;

@@ -11,11 +11,11 @@ public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int loginId;
-
     private String account;
     private String password;
     private int peopleId;
+    private Boolean isLogin;
 }
 
 
-//login_Id	帳號	密碼	人員編號
+//login_Id	帳號	密碼	人員編號 權限開關

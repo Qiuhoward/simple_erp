@@ -13,3 +13,7 @@ public class HrSystemApplication {
     }
 
 }
+
+
+
+//開關按下去切權限開啟 再按下去按寫權限關閉

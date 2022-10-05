@@ -7,7 +7,6 @@ import java.util.Date;
 public class PeopleEditDto {
 
     private  int loginId;
-    private  int peopleId;
     private  String peoplePosition;
     private  String name;
     private  String gender;

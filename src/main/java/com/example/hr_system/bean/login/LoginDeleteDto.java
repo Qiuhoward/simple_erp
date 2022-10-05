@@ -9,6 +9,4 @@ public class LoginDeleteDto {
     private  String loginAccount;
     private  String password;
     private  int    peopleId;
-
-
 }

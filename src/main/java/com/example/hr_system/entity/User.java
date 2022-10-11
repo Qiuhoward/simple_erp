@@ -3,7 +3,6 @@ package com.example.hr_system.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 
 import javax.persistence.*;
@@ -11,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@ToString
+
 public class User {
 
     @Id

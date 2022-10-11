@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.servers.Server;
 
-@OpenAPIDefinition(info = @Info(title = "標題" ,version = "版本",description = "描述"),externalDocs = @ExternalDocumentation(description = "參考資料",url="網址"),servers = @Server(url = "192.168.0.173:8000"))
+@OpenAPIDefinition(info = @Info(title = "標題" ,version = "版本",description = "描述"),externalDocs = @ExternalDocumentation(description = "參考資料",url="網址"),servers = @Server(url = "http://192.168.0.173:8000"))
 @SecurityScheme(type= SecuritySchemeType.HTTP,name = "JWT",scheme = "bearer",in = SecuritySchemeIn.HEADER)
 public class SwaggerConfig {
 

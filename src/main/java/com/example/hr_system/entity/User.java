@@ -1,21 +1,25 @@
 package com.example.hr_system.entity;
 
-import lombok.Data;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
-public class Login {
+@ToString
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int loginId;
+    private Long userId;
     private String account;
     private String password;
-    private int peopleId;
-    private Boolean isLogin;
+    private String email;
 }
 
 
-//login_Id	帳號	密碼	人員編號 權限開關

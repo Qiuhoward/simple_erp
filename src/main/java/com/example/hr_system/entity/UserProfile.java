@@ -1,27 +1,28 @@
 package com.example.hr_system.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
-@Data
+@Getter
+@Setter
 @Entity
-public class People {
+@ToString
+public class UserProfile {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  int peopleId;
-    private  String peoplePosition;
+    private  long  userProfileId ;
+    private Long userId;
     private  String name;
     private  String gender;
-    private  Date birth;
-    private  int  cellphoneNumber;
-    private  String email;
-    private String permission;
+    private  Date birthday;
+    private  String  cellphoneNumber;
+    private String companyId;
 }
-
-//人員id	職位	姓名	性別	生日	 電子郵件 電話

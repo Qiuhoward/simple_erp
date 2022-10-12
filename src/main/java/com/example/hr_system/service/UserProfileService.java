@@ -40,7 +40,6 @@ public class UserProfileService {
 
     public String editProfile(EditDto editDto,Long userId) {
     List<UserProfile> userProfiles=userProfileRepository.findByUserId(userId);
-        System.out.println(userProfiles.get(0));
         BeanUtils.copyProperties(userProfiles,editDto);
         return "修改成功";
     }

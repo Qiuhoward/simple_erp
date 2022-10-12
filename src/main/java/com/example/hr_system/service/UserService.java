@@ -1,7 +1,9 @@
 package com.example.hr_system.service;
 
 import com.example.hr_system.bean.AddDto;
+import com.example.hr_system.bean.LoginDto;
 import com.example.hr_system.bean.QueryPermissionListDto;
+import com.example.hr_system.bean.event.EventMessage;
 import com.example.hr_system.entity.User;
 import com.example.hr_system.entity.UserPermissionList;
 import com.example.hr_system.entity.UserProfile;
@@ -85,15 +87,17 @@ public class UserService {
         return queryPermissionListDtos;
     }
 
-    public String login(String account, String password) {
-     Optional<User> userOptional=userRepository.findByAccountAndPassword(account,password);
+    public EventMessage<Integer> login(LoginDto loginDto) {
+
+     Optional<User> userOptional=userRepository.findByAccountAndPassword(loginDto.getAccount(),loginDto.getPassword());
+        EventMessage eventMessage=new EventMessage();
      if(userOptional.isPresent()){
          User user=userOptional.get();
-         return "您的人員編號為"+user.getUserId().toString();
+         return eventMessage.setDefaultEventMessage(user.getUserId());
      }
 
 
-        return "帳密錯誤";
+        return eventMessage.GetEeceptionMessage("1001","帳密錯誤");
     }
 
 

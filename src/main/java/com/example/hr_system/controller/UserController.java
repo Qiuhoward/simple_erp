@@ -3,12 +3,11 @@ package com.example.hr_system.controller;
 
 
 import com.example.hr_system.bean.AddDto;
-import com.example.hr_system.bean.QueryPermissionListDto;
+import com.example.hr_system.bean.LoginDto;
+import com.example.hr_system.bean.event.EventMessage;
 import com.example.hr_system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"*"}) //
@@ -29,15 +28,13 @@ public class UserController {
     }
 
     @PostMapping(value = "login")
-    public  String login(@RequestParam(value="account") String account,@RequestParam(value="password") String password){
-        return  userService.login(account,password);
+    public EventMessage<Integer> login(@RequestBody LoginDto loginDto){
+        return  userService.login(loginDto);
     }
 
 
-    @GetMapping(value = "query_permission_list")
-    public List<QueryPermissionListDto> queryPermissionList(@RequestParam(value="userId") Long userId){
-        return  userService.queryPermissionList(userId);
-    }
+
+
 
 
 

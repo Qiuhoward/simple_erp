@@ -17,13 +17,13 @@ public class TeacherList {
 
     private String account;// 帳號
 
-    private boolean isUser;   //是否啟用
+    private Boolean enable;   //是否啟用
 
-    private boolean isPush; //是否推播
+    private Boolean push; //是否推播
 
     private Date changingTime; //異動時間
 
-    private Long changingPersonnel;// 異動人員
+    private String changingPersonnel;// 異動人員
 
     private String device;//裝置
 

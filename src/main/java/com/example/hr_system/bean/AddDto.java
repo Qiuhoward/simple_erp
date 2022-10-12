@@ -12,6 +12,6 @@ public class AddDto {
     private  String email;
     private  String name;
     private  String gender;
-    private Date birthday;
+    private  Date birthday;
     private  String  cellphoneNumber;
 }
